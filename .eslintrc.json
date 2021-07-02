@@ -4,7 +4,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard"
+        "standard",
+        "plugin:prettier/recommended"
     ],
     "globals": {
       "__DEV__": "readonly"
@@ -19,9 +20,11 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
+      "prettier/prettier": "error",
       "semi": "error",
       "no-use-before-define": "off"
     }
