@@ -27,6 +27,7 @@
       "prettier/prettier": "error",
       "semi": "error",
       "no-use-before-define": "off",
-      "react/react-in-jsx-scope": "off"
+      "react/react-in-jsx-scope": "off",
+      "camelcase": "off"
     }
 }
