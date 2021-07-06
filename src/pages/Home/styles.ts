@@ -10,10 +10,17 @@ export const Container = styled.SafeAreaView`
 
 export const Header = styled.View`
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   height: 10%;
   width: 100%;
 `
+
+export const HeaderLocation = styled.Text`
+  font-size: 18px;
+  color: #fff;
+`
+
 export const Main = styled.View`
   justify-content: space-between;
   align-items: center;
@@ -44,8 +51,9 @@ export const TemperatureText = styled.Text`
 `
 
 export const Footer = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
   height: 30%;
   width: 100%;
   align-items: center;
-  justify-content: center;
 `
