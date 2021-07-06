@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   ActivityIndicator,
   Alert,
@@ -13,8 +13,10 @@ import {
 } from 'react-native'
 
 import { HomeProps } from '../../routes/types'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import {
+  ActivityContainer,
   Container,
   Footer,
   Header,
@@ -46,51 +48,34 @@ import Image13n from '../../assets/Weather/13n/13n.png'
 import Image0203d from '../../assets/Weather/0203d/0203d.png'
 import Image0203n from '../../assets/Weather/0203n/0203n.png'
 import Image0450 from '../../assets/Weather/0450/0450.png'
+import ThemeSwitcher from '../../components/ThemeSwitcher'
+import { ThemeContext } from 'styled-components'
 
 interface WeatherData {
   weather: [
     {
-      id: number
       main: string
       description: string
       icon: string
     },
   ]
-  base: string
   main: {
     temp: number
-    feels_like: number
     temp_min: number
     temp_max: number
-    pressure: number
-    humidity: number
   }
-  visibility: number
-  wind: {
-    speed: number
-    deg: number
-  }
-  clouds: {
-    all: number
-  }
-  dt: number
   sys: {
-    type: number
-    id: number
     country: string
-    sunrise: number
-    sunset: number
   }
-  timezone: -10800
-  id: 3447779
   name: string
-  cod: 200
 }
 
 function Home({ navigation }: HomeProps) {
   const [location, setLocation] = useState<Geolocation.GeoPosition | null>(null)
   const [weatherData, setWeatherData] = useState<null | WeatherData>(null)
   const [loadingData, setLoadingData] = useState(false)
+
+  const { title } = useContext(ThemeContext)
 
   useEffect(() => {
     if (hasLocationPermission()) {
@@ -274,6 +259,7 @@ function Home({ navigation }: HomeProps) {
             </View>
           )}
         </View>
+        <ThemeSwitcher />
       </Header>
 
       <ImageBackground
@@ -286,50 +272,60 @@ function Home({ navigation }: HomeProps) {
           alignItems: 'center',
         }}
       >
-        <Main>
-          <View
-            style={{
-              width: '100%',
-              alignItems: 'center',
-            }}
-          >
-            {weatherData?.weather[0].icon && (
-              <Image
-                source={renderImage(weatherData?.weather[0].icon)}
-                style={{ width: 250, height: 250 }}
-              />
-            )}
-          </View>
-          {!loadingData &&
-          weatherData?.main.temp &&
-          weatherData?.weather[0].description ? (
-            <Temperature>
-              <Text>{capitalize(weatherData?.weather[0].description)}</Text>
-              <TemperatureText>
-                {weatherData?.main.temp.toFixed(0)}
-                <TemperatureText style={{ color: '#FEEF0A' }}>
-                  º
+        {!loadingData ? (
+          <Main>
+            <View
+              style={{
+                width: '100%',
+                alignItems: 'center',
+              }}
+            >
+              {weatherData?.weather[0].icon && (
+                <Image
+                  source={renderImage(weatherData?.weather[0].icon)}
+                  style={{ width: 250, height: 250 }}
+                />
+              )}
+            </View>
+            {weatherData?.main.temp && weatherData?.weather[0].description && (
+              <Temperature>
+                <Text>{capitalize(weatherData?.weather[0].description)}</Text>
+                <TemperatureText>
+                  {weatherData?.main.temp.toFixed(0)}
+                  <TemperatureText style={{ color: '#FEEF0A' }}>
+                    º
+                  </TemperatureText>
                 </TemperatureText>
-              </TemperatureText>
-            </Temperature>
-          ) : (
-            <Temperature>
-              <ActivityIndicator size="large" color="#fff" />
-            </Temperature>
-          )}
+              </Temperature>
+            )}
 
-          <TouchableOpacity
-            style={{ backgroundColor: '#333', padding: 10, borderRadius: 5 }}
-            onPress={() => LoadWeatherData()}
-          >
-            <Text>Recarregar</Text>
-          </TouchableOpacity>
+            <TouchableOpacity onPress={() => LoadWeatherData()}>
+              <Icon name="reload-circle" size={75} color="#FEEF0A" />
+            </TouchableOpacity>
 
-          <Footer>
-            <Text>Min: {weatherData?.main.temp_min.toFixed(0)}º</Text>
-            <Text>Max: {weatherData?.main.temp_max.toFixed(0)}º</Text>
-          </Footer>
-        </Main>
+            <Footer>
+              {weatherData?.main && (
+                <>
+                  <Text>
+                    Min: {weatherData?.main.temp_min.toFixed(0)}
+                    <Text style={{ color: '#FEEF0A' }}>º</Text>
+                  </Text>
+                  <Text>
+                    Max: {weatherData?.main.temp_max.toFixed(0)}
+                    <Text style={{ color: '#FEEF0A' }}>º</Text>
+                  </Text>
+                </>
+              )}
+            </Footer>
+          </Main>
+        ) : (
+          <ActivityContainer>
+            <ActivityIndicator
+              size="large"
+              color={title === 'light' ? '#0d0d0d' : '#fff'}
+            />
+          </ActivityContainer>
+        )}
       </ImageBackground>
     </Container>
   )

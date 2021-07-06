@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.SafeAreaView`
-  background: #000000;
+  background: ${props => props.theme.colors.background};
   display: flex;
   flex: 1;
   align-items: center;
@@ -18,7 +18,7 @@ export const Header = styled.View`
 
 export const HeaderLocation = styled.Text`
   font-size: 18px;
-  color: #fff;
+  color: ${props => props.theme.colors.text};
 `
 
 export const Main = styled.View`
@@ -29,8 +29,14 @@ export const Main = styled.View`
   width: 100%;
 `
 
+export const ActivityContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`
+
 export const Text = styled.Text`
-  color: #fff;
+  color: ${props => props.theme.colors.text};
   font-size: 25px;
   text-align: center;
   font-weight: bold;
@@ -44,7 +50,7 @@ export const Temperature = styled.View`
 `
 
 export const TemperatureText = styled.Text`
-  color: #fff;
+  color: ${props => props.theme.colors.text};
   font-size: 75px;
   text-align: center;
   font-weight: bold;
