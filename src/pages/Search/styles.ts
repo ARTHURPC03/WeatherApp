@@ -5,20 +5,13 @@ export const Container = styled.SafeAreaView`
   display: flex;
   flex: 1;
   align-items: center;
-  justify-content: center;
 `
-
 export const Header = styled.View`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   height: 10%;
   width: 100%;
-`
-
-export const HeaderLocation = styled.Text`
-  font-size: 18px;
-  color: ${props => props.theme.colors.text};
 `
 
 export const Main = styled.View`
@@ -29,17 +22,18 @@ export const Main = styled.View`
   width: 100%;
 `
 
-export const ActivityContainer = styled.View`
+export const Text = styled.Text`
+  color: ${props => props.theme.colors.text};
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+`
+
+export const Content = styled.View`
   justify-content: center;
   align-items: center;
   flex: 1;
-`
-
-export const Text = styled.Text`
-  color: ${props => props.theme.colors.text};
-  font-size: 25px;
-  text-align: center;
-  font-weight: bold;
+  width: 100%;
 `
 
 export const Temperature = styled.View`
@@ -56,12 +50,10 @@ export const TemperatureText = styled.Text`
   font-weight: bold;
 `
 
-export const Footer = styled.View`
-  flex-direction: row;
-  justify-content: space-around;
-  height: 30%;
-  width: 100%;
+export const ActivityContainer = styled.View`
+  justify-content: center;
   align-items: center;
+  flex: 1;
 `
 
 export const ImageView = styled.View`
@@ -72,8 +64,4 @@ export const ImageView = styled.View`
 export const Image = styled.Image`
   width: 250px;
   height: 250px;
-`
-
-export const ReloadButton = styled.TouchableOpacity`
-  margin-top: 20px;
 `
