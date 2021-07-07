@@ -1,25 +1,49 @@
-import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import React, { useContext } from 'react'
 
-import Dashboard from '../pages/Dashboard'
 import Home from '../pages/Home'
-import { RootStackParamList } from './types'
+import Search from '../pages/Search'
 
-const Stack = createStackNavigator<RootStackParamList>()
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import Icon from 'react-native-vector-icons/Ionicons'
+import { ThemeContext } from 'styled-components'
+
+const Tab = createBottomTabNavigator()
 
 export default function Routes() {
+  const { colors } = useContext(ThemeContext)
   return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: colors.text,
+        inactiveTintColor: colors.tabBarIconInactiveColor,
+        inactiveBackgroundColor: colors.background,
+        activeBackgroundColor: colors.tabBarActiveBackgroundColor,
+        style: {
+          borderTopWidth: 0,
+        },
+        showLabel: false,
+      }}
+    >
+      <Tab.Screen
         name="Home"
         component={Home}
-        options={{ headerShown: false }}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="home" color={color} size={size} />
+          ),
+        }}
       />
-      <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
-        options={{ headerShown: false }}
+      <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarLabel: 'Search',
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="search" color={color} size={size} />
+          ),
+        }}
       />
-    </Stack.Navigator>
+    </Tab.Navigator>
   )
 }
