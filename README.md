@@ -17,7 +17,8 @@
 
 <h1 align="center">
   <img alt="WeatherApp" title="WeatherApp" src="./github/WeatherApp.gif" height="425" />
-  <img alt="WeatherApp" title="WeatherApp" src="./github/WeatherAppThemeAndError.gif" height="425" />
+  <img alt="WeatherApp" title="Persistência do tema e alerta de erro na busca" src="./github/WeatherAppThemeAndError.gif" height="425" />
+  <img alt="WeatherApp" title="Sem conexão da API" src="./github/WeatherAppNoApiConnection.gif" height="425" />
 </h1>
 
 
