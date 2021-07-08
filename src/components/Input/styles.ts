@@ -12,7 +12,7 @@ export const Container = styled.View<ContainerProps>`
   padding: 0 16px;
   background: ${props => props.theme.colors.inputBackground};
   margin-bottom: 8px;
-  border-width: 1px;
+  border-width: 2px;
   border-color: ${props => props.theme.colors.background};
   border-radius: 30px;
   flex-direction: row;
@@ -25,7 +25,7 @@ export const Container = styled.View<ContainerProps>`
   ${props =>
     props.isFocused &&
     css`
-      border-color: #3a3836;
+      border-color: ${props => props.theme.colors.inputFocusBorderColor};
     `}
 `
 

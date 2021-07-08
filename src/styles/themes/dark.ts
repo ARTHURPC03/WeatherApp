@@ -15,5 +15,6 @@ export default {
     inputTextColor: '#ffffff',
     inputIconFill: '#fff',
     inputIconNotFill: '#ccc',
+    inputFocusBorderColor: '#c9c9c9',
   },
 }

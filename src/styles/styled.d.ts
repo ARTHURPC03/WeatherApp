@@ -18,6 +18,7 @@ declare module 'styled-components' {
       inputTextColor: string
       inputIconFill: string
       inputIconNotFill: string
+      inputFocusBorderColor: string
     }
   }
 }

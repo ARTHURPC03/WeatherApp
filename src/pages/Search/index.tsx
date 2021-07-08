@@ -44,7 +44,7 @@ function Search() {
 
   const { colors } = useContext(ThemeContext)
 
-  const handleSearch = useCallback(async (data: SearchFormData) => {
+  const handleSearch = useCallback(async (data: SearchFormData, { reset }) => {
     try {
       setLoadingData(true)
       formRef.current?.setErrors({})
@@ -61,6 +61,7 @@ function Search() {
       )
       setWeatherData(response.data)
       setLoadingData(false)
+      reset()
     } catch (err) {
       setLoadingData(false)
       if (err instanceof Yup.ValidationError) {
