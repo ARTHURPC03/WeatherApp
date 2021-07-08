@@ -207,27 +207,29 @@ function Home() {
       >
         {!loadingData ? (
           <Main>
-            {weatherData?.main.temp && weatherData?.weather[0].description && (
-              <Temperature>
-                <ImageView>
-                  {weatherData?.weather[0].icon && (
-                    <Image
-                      source={weatherImage(weatherData?.weather[0].icon)}
-                    />
-                  )}
-                </ImageView>
-                <Text>{capitalize(weatherData?.weather[0].description)}</Text>
-                <TemperatureText>
-                  {weatherData?.main.temp.toFixed(0)}
-                  <TemperatureText style={{ color: colors.primary }}>
-                    º
+            <Temperature>
+              {weatherData?.main.temp && weatherData?.weather[0].description && (
+                <>
+                  <ImageView>
+                    {weatherData?.weather[0].icon && (
+                      <Image
+                        source={weatherImage(weatherData?.weather[0].icon)}
+                      />
+                    )}
+                  </ImageView>
+                  <Text>{capitalize(weatherData?.weather[0].description)}</Text>
+                  <TemperatureText>
+                    {weatherData?.main.temp.toFixed(0)}
+                    <TemperatureText style={{ color: colors.primary }}>
+                      º
+                    </TemperatureText>
                   </TemperatureText>
-                </TemperatureText>
-                <ReloadButton onPress={() => LoadWeatherData()}>
-                  <Icon name="reload-circle" size={75} color={colors.primary} />
-                </ReloadButton>
-              </Temperature>
-            )}
+                </>
+              )}
+              <ReloadButton onPress={() => LoadWeatherData()}>
+                <Icon name="reload-circle" size={75} color={colors.primary} />
+              </ReloadButton>
+            </Temperature>
 
             <Footer>
               {weatherData?.main && (
