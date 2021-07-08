@@ -24,7 +24,7 @@
 ### Features
 - [x] Theme Switcher
 - [x] O tema é mantido
-- [x] Ícones mudando de acordo com o clima
+- [x] Ícones mudando de acordo com o clima, [Weatherly 3D Icons](https://piqodesign.gumroad.com/?query=weather&sort=page_layout#kSiNv)
 - [x] Consumo da API de clima
 - [x] Consumo da localização do usuário
 - [x] Botão para recarregar os dados
