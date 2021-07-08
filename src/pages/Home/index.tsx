@@ -63,10 +63,18 @@ function Home() {
 
   async function LoadWeatherData() {
     setLoadingData(true)
-    const { data } = await api.get(
-      `/weather?lat=${location?.coords?.latitude}&lon=${location?.coords?.longitude}&appid=${WEATHER_API_KEY}&units=metric&lang=pt_br`,
-    )
-    setWeatherData(data)
+    try {
+      const { data } = await api.get(
+        `/weather?lat=${location?.coords?.latitude}&lon=${location?.coords?.longitude}&appid=${WEATHER_API_KEY}&units=metric&lang=pt_br`,
+      )
+      setWeatherData(data)
+    } catch (error) {
+      Alert.alert(
+        'Erro de conexão',
+        'Verifique sua conexão com a internet e tente novamente',
+      )
+    }
+
     setLoadingData(false)
   }
 
