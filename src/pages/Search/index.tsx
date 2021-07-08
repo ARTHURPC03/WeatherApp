@@ -12,6 +12,8 @@ import * as Yup from 'yup'
 
 import WeatherData from '../../types/WeatherData'
 
+import { WEATHER_API_KEY } from '@env'
+
 import {
   ActivityContainer,
   Container,
@@ -54,7 +56,7 @@ function Search() {
         abortEarly: false,
       })
       const response = await api.get(
-        `/weather?q=${data.search}&appid=b0e004dd3e03d8de5555236297c8926c&units=metric&lang=pt_br`,
+        `/weather?q=${data.search}&appid=${WEATHER_API_KEY}&units=metric&lang=pt_br`,
       )
       setWeatherData(response.data)
       setLoadingData(false)

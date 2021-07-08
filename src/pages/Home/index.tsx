@@ -40,6 +40,8 @@ import { ThemeContext } from 'styled-components'
 import WeatherData from '../../types/WeatherData'
 import weatherImage from '../../utils/weatherImage'
 
+import { WEATHER_API_KEY } from '@env'
+
 function Home() {
   const [location, setLocation] = useState<Geolocation.GeoPosition | null>(null)
   const [weatherData, setWeatherData] = useState<null | WeatherData>(null)
@@ -62,7 +64,7 @@ function Home() {
   async function LoadWeatherData() {
     setLoadingData(true)
     const { data } = await api.get(
-      `/weather?lat=${location?.coords?.latitude}&lon=${location?.coords?.longitude}&appid=b0e004dd3e03d8de5555236297c8926c&units=metric&lang=pt_br`,
+      `/weather?lat=${location?.coords?.latitude}&lon=${location?.coords?.longitude}&appid=${WEATHER_API_KEY}&units=metric&lang=pt_br`,
     )
     setWeatherData(data)
     setLoadingData(false)
