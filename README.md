@@ -5,8 +5,8 @@
 <p align="center">
  <a href="#features">Features</a> •
  <a href="#pré-requisitos">Pré Requisitos</a> •
- <a href="#🎲-rodando-o-front-end">Rodando a aplicação</a> •
- <a href="#🛠-tecnologias">Tecnologias</a> •
+ <a href="#🎲-rodando-o-mobile">Rodando a aplicação</a> •
+ <a href="#🔨-tecnologias">Tecnologias</a> •
  <a href="#autor">Autor</a>
 </p>
 
@@ -23,6 +23,7 @@
 
 
 ### Features
+
 - [x] Theme Switcher
 - [x] O tema é mantido
 - [x] Ícones mudando de acordo com o clima, [Weatherly 3D Icons](https://piqodesign.gumroad.com/?query=weather&sort=page_layout#kSiNv)
@@ -67,7 +68,7 @@ $ yarn ios
 ```
 
 
-### 🛠 Tecnologias
+### 🔨 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
