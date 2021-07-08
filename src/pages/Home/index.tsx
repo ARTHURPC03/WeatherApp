@@ -152,7 +152,6 @@ function Home() {
     Geolocation.getCurrentPosition(
       position => {
         setLocation(position)
-        console.log(position, 'position')
       },
       error => {
         Alert.alert(`Code ${error.code}`, error.message)

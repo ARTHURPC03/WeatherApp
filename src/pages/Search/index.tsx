@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useRef, useState } from 'react'
-import { ActivityIndicator, Alert } from 'react-native'
+import { ActivityIndicator, Alert, ImageBackground } from 'react-native'
 
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/mobile'
@@ -31,6 +31,8 @@ import weatherImage from '../../utils/weatherImage'
 import { ThemeContext } from 'styled-components'
 import { capitalize } from '../../utils/capitalize'
 
+import WorldMap from '../../assets/WorldMap/WorldMap.png'
+
 interface SearchFormData {
   search: string
 }
@@ -45,7 +47,6 @@ function Search() {
   const handleSearch = useCallback(async (data: SearchFormData) => {
     try {
       setLoadingData(true)
-      console.log(data, 'handleSearch')
       formRef.current?.setErrors({})
 
       const schema = Yup.object().shape({
@@ -95,6 +96,7 @@ function Search() {
         <Text>Buscar por cidade</Text>
         <ThemeSwitcher />
       </Header>
+
       <Main>
         <Form ref={formRef} onSubmit={handleSearch}>
           <Input
@@ -106,39 +108,50 @@ function Search() {
             }}
           />
         </Form>
-
-        {!loadingData ? (
-          <>
-            {weatherData?.main.temp && weatherData?.weather[0].description && (
-              <Content>
-                <ImageView>
-                  {weatherData?.weather[0].icon && (
-                    <Image
-                      source={weatherImage(weatherData?.weather[0].icon)}
-                      style={{ width: 250, height: 250 }}
-                    />
-                  )}
-                </ImageView>
-                <Temperature>
-                  <Text>
-                    {weatherData.name}, {weatherData.sys.country}
-                  </Text>
-                  <Text>{capitalize(weatherData?.weather[0].description)}</Text>
-                  <TemperatureText>
-                    {weatherData?.main.temp.toFixed(0)}
-                    <TemperatureText style={{ color: colors.primary }}>
-                      º
+        <ImageBackground
+          resizeMode="stretch"
+          source={WorldMap}
+          style={{
+            width: '100%',
+            height: '40%',
+            flex: 1,
+            alignItems: 'center',
+          }}
+        >
+          {!loadingData ? (
+            <>
+              {weatherData?.main.temp && weatherData?.weather[0].description && (
+                <Content>
+                  <ImageView>
+                    {weatherData?.weather[0].icon && (
+                      <Image
+                        source={weatherImage(weatherData?.weather[0].icon)}
+                      />
+                    )}
+                  </ImageView>
+                  <Temperature>
+                    <Text>
+                      {weatherData.name}, {weatherData.sys.country}
+                    </Text>
+                    <Text>
+                      {capitalize(weatherData?.weather[0].description)}
+                    </Text>
+                    <TemperatureText>
+                      {weatherData?.main.temp.toFixed(0)}
+                      <TemperatureText style={{ color: colors.primary }}>
+                        º
+                      </TemperatureText>
                     </TemperatureText>
-                  </TemperatureText>
-                </Temperature>
-              </Content>
-            )}
-          </>
-        ) : (
-          <ActivityContainer>
-            <ActivityIndicator size="large" color={colors.text} />
-          </ActivityContainer>
-        )}
+                  </Temperature>
+                </Content>
+              )}
+            </>
+          ) : (
+            <ActivityContainer>
+              <ActivityIndicator size="large" color={colors.text} />
+            </ActivityContainer>
+          )}
+        </ImageBackground>
       </Main>
     </Container>
   )

@@ -15,3 +15,8 @@ export const Button = styled.TouchableOpacity`
   justify-content: center;
   box-shadow: 5px 5px 5px black;
 `
+
+export const Image = styled.Image`
+  width: 60px;
+  height: 60px;
+`
