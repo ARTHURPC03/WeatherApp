@@ -6,6 +6,7 @@ export const Container = styled.SafeAreaView`
   flex: 1;
   align-items: center;
 `
+
 export const Header = styled.View`
   flex-direction: row;
   justify-content: space-around;

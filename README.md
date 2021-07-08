@@ -32,14 +32,6 @@
 - [x] Busca por cidades
 - [x] Tratativa de erros
 
-<br />
-
-# ⚠ Aviso - API fora do ar
-⚠ A API de clima está fora do ar no momento(08/07/2021, 9:00) ⚠
-
-Verifique se voltou acessando por esse link: [https://openweathermap.org/api](https://openweathermap.org/api)
-
----
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
@@ -60,7 +52,7 @@ $ git clone https://github.com/ARTHURPC03/WeatherApp
 $ cd WeatherApp
 
 # Faça uma cópia de '.env.example' para '.env'
-# coloque sua credencial da API de clima (Weather API)
+# Coloque sua credencial da API de clima (Weather API)
 $ cp .env.example .env
 
 # Instale as dependências
