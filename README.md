@@ -51,6 +51,10 @@ $ git clone https://github.com/ARTHURPC03/WeatherApp
 # Acesse a pasta do projeto no terminal/cmd
 $ cd WeatherApp
 
+# Faça uma cópia de '.env.example' para '.env'
+# coloque sua credencial da API de clima (Weather API)
+$ cp .env.example .env
+
 # Instale as dependências
 $ yarn
 
@@ -69,6 +73,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [React Native](https://reactnative.dev/)
+- [Weather API](https://openweathermap.org/api)
 - [Context API](https://pt-br.reactjs.org/docs/context.html)
 - [React Native Geolocation Service](https://github.com/Agontuk/react-native-geolocation-service)
 - [React Navigation](https://reactnavigation.org/)
