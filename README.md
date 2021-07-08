@@ -31,7 +31,14 @@
 - [x] Busca por cidades
 - [x] Tratativa de erros
 
+<br />
 
+# ⚠ Aviso - API fora do ar
+⚠ A API de clima está fora do ar no momento(08/07/2021, 9:00) ⚠
+
+Verifique se voltou acessando por esse link: [https://openweathermap.org/api](https://openweathermap.org/api)
+
+---
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
