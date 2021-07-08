@@ -69,6 +69,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [React Native](https://reactnative.dev/)
+- [Context API](https://pt-br.reactjs.org/docs/context.html)
 - [React Native Geolocation Service](https://github.com/Agontuk/react-native-geolocation-service)
 - [React Navigation](https://reactnavigation.org/)
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
