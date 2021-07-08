@@ -106,6 +106,7 @@ function Search() {
             onSubmitEditing={() => {
               formRef.current?.submitForm()
             }}
+            containerStyle={{ marginTop: 20 }}
           />
         </Form>
         <ImageBackground

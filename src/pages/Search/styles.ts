@@ -12,6 +12,7 @@ export const Header = styled.View`
   align-items: center;
   height: 10%;
   width: 100%;
+  margin-top: 20px;
 `
 
 export const Main = styled.View`
