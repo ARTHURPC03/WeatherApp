@@ -43,7 +43,7 @@ Você também vai precisar configurar o ambiente para desenvolvimento mobile no 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 
-### 🎲 Rodando o Mobile
+### Rodando o Mobile
 
 ```bash
 # Clone este repositório
@@ -68,7 +68,7 @@ $ yarn ios
 ```
 
 
-### 🔨 Tecnologias
+### Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
